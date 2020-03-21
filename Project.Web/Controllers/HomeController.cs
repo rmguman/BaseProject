@@ -15,6 +15,7 @@ namespace Project.Web.Controllers
 
         public ActionResult About()
         {
+            ShowMessage(new List<string>() { "Email address or password is incorrect." }, "loginModal"); //
             ViewBag.Message = "Your application description page.";
 
             return View();

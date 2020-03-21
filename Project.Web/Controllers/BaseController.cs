@@ -17,7 +17,19 @@ namespace Project.Web.Controllers
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            base.OnActionExecuted(filterContext);
+            //
+        }
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="msg">Modal Messages</param>
+        /// <param name="modalName">Modal Name</param>
+        public void ShowMessage(List<string> msg, string modalName)
+        {
+            msg.Add(modalName);
+            TempData["ModalMessages"] = msg;
         }
     }
 }

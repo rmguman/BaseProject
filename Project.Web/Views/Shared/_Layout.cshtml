@@ -186,10 +186,10 @@
                 <form class="text-center border border-light p-5" action="#!">
                     <div class="modal-header  text-center">
                         <h5 class="modal-title w-100" id="exampleModalCenterTitle">Register</h5>
-                       
+
                     </div>
                     <div class="modal-body">
-                        <!-- Default form register -->                    
+                        <!-- Default form register -->
 
                         <div class="form-row mb-4">
                             <div class="col">
@@ -245,7 +245,7 @@
 
 
                         <!-- Default form register -->
-                    </div>                   
+                    </div>
                 </form>
             </div>
         </div>
@@ -258,3 +258,26 @@
 </body>
 
 </html>
+
+@RenderSection("script", false)
+
+@if (TempData["ModalMessages"] != null)
+{
+
+    List<string> error = (List<string>)TempData["ModalMessages"];
+
+    <script>
+             var arr = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(error, Newtonsoft.Json.Formatting.Indented));
+             console.log(arr)
+             var modalname = arr[arr.length - 1];
+             $('#' + modalname).modal().show();
+             var content = $('#' + modalname + ' #modelErrorSummaryBody').html()
+             for (var i = 0; i < arr.length; i++) {
+                 if (i != arr.length - 1) {
+                     content += '<div lang="en" class="text-danger">' + arr[i] + '</div>'
+                 }
+             }
+             $('#' + modalname + ' #modelErrorSummaryBody').html(content)
+    </script>
+
+}
