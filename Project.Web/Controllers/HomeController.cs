@@ -26,5 +26,9 @@ namespace Project.Web.Controllers
 
             return View();
         }
+        public ActionResult PostDetail()
+        {
+            return View();
+        }
     }
 }
