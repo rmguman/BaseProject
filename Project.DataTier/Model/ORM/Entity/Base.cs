@@ -14,6 +14,6 @@ namespace Project.DataTier.Model.ORM.Entity
 
         public bool IsDeleted { get; set; }
 
-        public DateTime AddDate { get; set; }
+        public DateTime? AddDate { get; set; }
     }
 }

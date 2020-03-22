@@ -1,0 +1,68 @@
+﻿<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form class="text-center border border-light p-5" action="/Account/Register" method="post">
+                <div class="modal-header  text-center">
+                    <h5 class="modal-title w-100" id="exampleModalCenterTitle">Register</h5>
+
+                </div>
+                <div class="modal-body">
+                    <!-- Default form register -->
+                    <span class="text-danger" id="modelErrorSummaryBody"></span>
+                    <span class="text-danger" id="">@Html.ValidationSummary()</span>
+                    <div class="form-row mb-4">
+                        <div class="col">
+                            <!-- First name -->
+                            <input type="text" name="FirstName" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <!-- Last name -->
+                            <input type="text" name="LastName" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+                        </div>
+                    </div>
+                    @*Nickname*@
+                    <input type="text" id="defaultRegisterFormNickName" name="NickName" value="" class="form-control mb-4" placeholder="Nick name" />
+
+                    <!-- E-mail -->
+                    <input type="email" name="Email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+
+                    <!-- Password -->
+                    <input type="password" name="Password" id="defaultRegisterFormPassword" class="form-control mb-4" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                    <input type="password" name="ConfirmPassword" id="defaultRegisterFormConfirmPassword" class="form-control mb-4" placeholder="Confirm Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                    <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                        At least 8 characters and 1 digit
+                    </small>
+
+                    <!-- Newsletter -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
+                        <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
+                    </div>
+
+                    <!-- Sign up button -->
+                    <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
+
+                    <!-- Social register -->
+                    <p>or sign up with:</p>
+
+                    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+                    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+                    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+                    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+
+                    <hr>
+
+                    <!-- Terms of service -->
+                    <p>
+                        By clicking
+                        <em>Sign up</em> you agree to our
+                        <a href="" target="_blank">terms of service</a>
+                    </p>
+
+
+                    <!-- Default form register -->
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

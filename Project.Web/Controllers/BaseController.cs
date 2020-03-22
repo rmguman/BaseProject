@@ -17,9 +17,20 @@ namespace Project.Web.Controllers
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            //
+            ViewBag.NickName = GetNickName();
         }
 
+
+        public string GetNickName()
+        {
+            string email = HttpContext.User.Identity.Name;
+            var user = unit.WebUserRepo.FirstOrDefault(x => x.EMail == email);
+            if (user!=null)
+            {
+                return user.Nickname;
+            }
+            return "";
+        }
 
         /// <summary>
         /// 

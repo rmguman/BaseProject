@@ -9,8 +9,11 @@ namespace Project.DataTier.Model.ORM.Entity
     public class WebUser:Base
     {
         public string EMail { get; set; }
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public string Nickname { get; set; }
         public string Password { get; set; }
-        public DateTime LastLoginDate { get; set; }
+        public DateTime? LastLoginDate { get; set; }
         public string ImagePath { get; set; }
     }
 }
