@@ -17,7 +17,16 @@ namespace Project.Web.Controllers
 
         protected override void OnActionExecuted(ActionExecutedContext filterContext)
         {
-            ViewBag.NickName = GetNickName();
+            
+            if (HttpContext.User.Identity.IsAuthenticated)
+            {
+                ViewBag.Loginstatus = true;
+                ViewBag.NickName = GetNickName();
+            }
+            else
+            {
+                ViewBag.Loginstatus = false;
+            }
         }
 
 
@@ -31,6 +40,7 @@ namespace Project.Web.Controllers
             }
             return "";
         }
+     
 
         /// <summary>
         /// 

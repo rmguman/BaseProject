@@ -136,6 +136,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Model\Types\EnumIslemDurum.cs" />
+    <Compile Include="Model\VM\LoginVM.cs" />
     <Compile Include="Model\VM\RegisterVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -34,6 +34,7 @@ namespace Project.Web.Controllers
                     webuser.Surname = model.LastName;
                     webuser.EMail = model.Email;
                     webuser.Nickname = model.NickName;
+                    webuser.Password = model.Password;
                     unit.WebUserRepo.Add(webuser);
                     ViewBag.IslemDurum = EnumIslemDurum.IslemBasarili;
 
@@ -53,9 +54,40 @@ namespace Project.Web.Controllers
                 ViewBag.IslemDurum = EnumIslemDurum.ValidationHata;
                 
             }
-            return RedirectToAction("Index", "Home");
-           
+            return RedirectToAction("Index", "Home");           
         }
+        [HttpPost]
+        public ActionResult Login(LoginVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var webusercontrol = unit.WebUserRepo.FirstOrDefault(x => x.EMail.ToLower() == model.Email.ToLower() && x.Password == model.Password);
+                if (webusercontrol != null)
+                {
+                    WebUser webuser = unit.WebUserRepo.FirstOrDefault(x => x.EMail.ToLower() == model.Email.ToLower() && x.Password == model.Password);
+                    ViewBag.IslemDurum = EnumIslemDurum.IslemBasarili;
+
+                    FormsAuthentication.SetAuthCookie(webuser.EMail, true);
+                }
+                else
+                {
+                    ShowMessage(new List<string>() { "Email address or password is incorrect." }, "login");
+                    ViewBag.IslemDurum = EnumIslemDurum.EmailHata;
+                }
+            }
+
+            else
+            {
+                ShowMessage(new List<string>() { "Email address or password is incorrect." }, "login");
+                ViewBag.IslemDurum = EnumIslemDurum.ValidationHata;
+
+            }
+
+
+            return RedirectToAction("Index", "Home");
+        }
+
+
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();

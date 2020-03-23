@@ -2,15 +2,17 @@
 <div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form class="text-center border border-light p-5" action="#!">
+            <form class="text-center border border-light p-5" action="/Account/Login" method="post">
                 <div class="modal-header text-center">
                     <h5 class="modal-title w-100" id="exampleModalScrollableTitle">Login</h5>
                 </div>
                 <div class="modal-body">
+                    <span class="text-danger" id="modelErrorSummaryBody"></span>
+                    <span class="text-danger" id="">@Html.ValidationSummary()</span>
                     <!-- Email -->
-                    <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+                    <input type="email" name="Email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
                     <!-- Password -->
-                    <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+                    <input type="password" name="Password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
                     <div class="d-flex justify-content-around">
                         <div>
                             <!-- Remember me -->
